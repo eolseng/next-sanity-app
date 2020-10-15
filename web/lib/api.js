@@ -8,8 +8,8 @@ const roomFields = `
     type,
     description,
     content,
-    'coverImage': coverImage.asset->url,
-    'images': images[]{title, caption, attribution, 'url': asset->url},
+    coverImage,
+    images,
 `
 
 export async function getAllRoomSlugs() {
