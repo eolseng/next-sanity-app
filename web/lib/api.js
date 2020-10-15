@@ -2,27 +2,24 @@ import client, {previewClient} from "./sanity";
 
 const getClient = (preview) => (preview ? previewClient : client)
 
-const postFields = `
-    name,
-    title,
-    publishedAt,
-    excerpt,
+const roomFields = `
+    'title': title,
     'slug': slug.current,
-    'coverImage': mainImage.asset->url,
-    'author': author->{name, 'picture':picture.asset->url}
+    type,
+    description,
+    content,
+    'coverImage': coverImage.asset->url,
+    'images': images[]{title, caption, attribution, 'url': asset->url},
 `
 
-export async function getAllPostsWithSlug() {
-    return await client.fetch(`*[_type == "post"]{ 'slug': slug.current }`)
+export async function getAllRoomSlugs() {
+    return await client.fetch(`*[_type == "room"]{ 'slug': slug.current }`)
 }
 
-export async function getAllPostsForHome(preview) {
-    const result = await getClient(preview)
-        .fetch(`
-        *[_type == "post"] 
-        | order(date desc, _updatedAt desc)
-        {${postFields}}
-        `)
+export async function getFrontPageRooms(preview) {
+    const amount = 3
+    const query = `*[_type == "room"] | order(date desc, _updatedAt desc)[0...${amount}]{${roomFields}}`
+    const result = await getClient(preview).fetch(query)
     return getUniquePosts(result)
 }
 
