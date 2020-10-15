@@ -2,9 +2,9 @@ import {imageBuilder} from "../lib/sanity";
 
 export default function RoomCard({room}) {
 
-
     const imageWidth = 400
     const imageHeight = imageWidth / 16 * 9
+
     const coverImage = (
         <img
             width={imageWidth}
@@ -28,8 +28,6 @@ export default function RoomCard({room}) {
         </div>
     )
 
-    console.log(room)
-
     return (
         <div style={{
             maxWidth: 500,
@@ -39,10 +37,10 @@ export default function RoomCard({room}) {
             borderRadius: 40
         }}>
             <h1>{room.title}</h1>
-            <blockquote>{room.type}</blockquote>
+            <p>Type: {room.type}</p>
             {coverImage}
             {images}
-            <p>{room.description.nb}</p>
+            <blockquote>{room.description.nb}</blockquote>
             <p>{room.slug}</p>
         </div>
     )
