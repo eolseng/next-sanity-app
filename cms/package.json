@@ -1,5 +1,5 @@
 {
-  "name": "nextsanity",
+  "name": "nextsanitycms",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -8,8 +8,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "test": "sanity check",
-    "build": "sanity build public -y"
+    "test": "sanity check"
   },
   "keywords": [
     "sanity"
@@ -26,7 +25,5 @@
     "react": "^16.2",
     "react-dom": "^16.2"
   },
-  "devDependencies": {
-    "@sanity/cli": "^2.0.3"
-  }
+  "devDependencies": {}
 }

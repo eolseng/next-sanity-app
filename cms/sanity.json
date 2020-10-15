@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "next-sanity"
+    "name": "next-sanity-cms"
   },
   "api": {
-    "projectId": "zd9gthqf",
+    "projectId": "cekkek8y",
     "dataset": "production"
   },
   "plugins": [
