@@ -21,7 +21,12 @@ export default function RoomCard({room}) {
                     width={imageWidth / 3}
                     height={imageHeight / 3}
                     alt={`Cover image for ${room.title}`}
-                    src={imageBuilder.image(image).width(Math.floor(imageWidth / 3)).height(Math.floor(imageHeight / 3)).url()}
+                    src={imageBuilder
+                        .image(image)
+                        .width(Math.floor(imageWidth / 3))
+                        .height(Math.floor(imageHeight / 3))
+                        .url()
+                    }
                 />
 
             })}
