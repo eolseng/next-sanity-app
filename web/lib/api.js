@@ -7,9 +7,9 @@ const roomFields = `
     'slug': slug.current,
     type,
     description,
-    content,
+    localeContent,
     coverImage,
-    images,
+    images
 `
 
 export async function getAllRoomSlugs() {

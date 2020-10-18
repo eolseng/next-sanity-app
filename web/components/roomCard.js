@@ -1,9 +1,13 @@
 import {imageBuilder} from "../lib/sanity";
+import localize from "../lib/localize";
 
 export default function RoomCard({room}) {
 
     const imageWidth = 400
     const imageHeight = imageWidth / 16 * 9
+
+    const localization = ['en', 'nb']
+    room = localize(room, localization)
 
     const coverImage = (
         <img
@@ -45,9 +49,8 @@ export default function RoomCard({room}) {
             <p>Type: {room.type}</p>
             {coverImage}
             {images}
-            <blockquote>{room.description.nb}</blockquote>
+            <blockquote>{room.description}</blockquote>
             <p>{room.slug}</p>
         </div>
     )
-
 }
