@@ -37,8 +37,7 @@ export async function getFrontPageRooms(preview) {
 
 export async function getRoomBySlug(slug, preview) {
     const query = `*[_type == "room" && slug.current == "${slug}"]{${roomFields}}[0]`
-    const result = await getClient(preview).fetch(query)
-    return result
+    return await getClient(preview).fetch(query)
 }
 
 const getUniquePosts = (posts) => {
