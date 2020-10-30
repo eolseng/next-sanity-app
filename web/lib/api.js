@@ -24,7 +24,7 @@ export async function getAllRoomSlugs() {
 
 /**
  * Retrieves the top 'amount' (3) rooms, ordered by descending date and descending _updatedAt
- * Uses constant 'roomFields' for which fields to retrieve
+ * Uses constant 'roomFields' for fields to retrieve
  * @param preview (boolean) - if it should retrieve preview data from the CMS
  * @returns {Promise<*>}
  */
@@ -35,6 +35,13 @@ export async function getFrontPageRooms(preview) {
     return getUniquePosts(result)
 }
 
+/**
+ * Retrieves a single Room based on its slug
+ * Uses constant 'roomFields' for fields to retrieve
+ * @param slug (string) - slug for the room to retrieve
+ * @param preview (boolean) - if it should retrieve preview data from the CMS
+ * @returns {Promise<any>}
+ */
 export async function getRoomBySlug(slug, preview) {
     const query = `*[_type == "room" && slug.current == "${slug}"]{${roomFields}}[0]`
     return await getClient(preview).fetch(query)
