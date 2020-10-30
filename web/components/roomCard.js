@@ -1,12 +1,16 @@
 import {imageBuilder} from "../lib/sanity";
 import localize from "../lib/localize";
+import {useRouter} from "next/router";
 
 export default function RoomCard({room}) {
+
+    const router = useRouter()
+    const {locale, defaultLocale} = router
 
     const imageWidth = 400
     const imageHeight = imageWidth / 16 * 9
 
-    const localization = ['en', 'nb']
+    const localization = [locale, defaultLocale]
     room = localize(room, localization)
 
     const coverImage = (
